@@ -1,0 +1,81 @@
+<view class="page-body">
+  <loading hidden="{{loadcomplete}}">
+    数据加载中...
+  </loading>
+
+  <view class="daily-vidio-view" hidden="{{loadsuccess}}">
+    <view class="vidio-view" style="height:{{videoheight}}px;width:{{screenwidth}}px">
+      <video id="myVideo" src="{{dailyVideoUrl}}" poster="{{videoImage}}"></video>  
+    </view>
+    <view class='foodname-view'>
+      <text>{{foodName}}</text>
+    </view>
+  </view>
+
+  <view class="kind-list">
+    <block wx:for="{{materialslist}}" wx:key="id">
+      <view class="kind-list-item">
+        <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="materialsToggle">
+          <view class="item-title">
+            <image src="../../images/circle-o.png"></image>
+            <text>{{item.name}}</text>
+          </view>
+          <view class="expand-ollapse">
+            <text class="expand-ollapse-text" hidden="{{item.open}}">打开</text>
+            <text class="expand-ollapse-text" hidden="{{!item.open}}">收起</text>
+            <image class="expand-ollapse-images" src="../../images/expand-ollapse.png"></image>
+          </view>
+        </view>
+
+        <view class="kind-list-item-bd" hidden="{{!item.open}}">
+          <view class="all-tags-view">
+            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+              <view class="tag-view">
+                <text>{{page}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="kind-list">
+    <block wx:for="{{stepslist}}" wx:key="id">
+      <view class="kind-list-item">
+        <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="stepsToggle">
+          <view class="item-title">
+            <image src="../../images/circle-o.png"></image>
+            <text>{{item.name}}</text>
+          </view>
+          <view class="expand-ollapse">
+            <text class="expand-ollapse-text" hidden="{{item.open}}">打开</text>
+            <text class="expand-ollapse-text" hidden="{{!item.open}}">收起</text>
+            <image class="expand-ollapse-images" src="../../images/expand-ollapse.png"></image>
+          </view>
+        </view>
+
+        <view class="kind-list-item-bd" hidden="{{!item.open}}">
+          <view class="all-card-view">
+            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+              <view class="step-card">
+                <view class="steps-title">
+                  <text class="step-title">{{page.stepname}}</text>
+                </view>
+                <view class="steps-body">
+                  <text class="step-body">{{page.stepcontent}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="myfoot">
+    <text>By GetItMore Team</text>
+</view>
+
+

@@ -1,0 +1,32 @@
+{
+  "pages":[                
+    "pages/dailyupdate/dailyupdate",
+    "pages/historysearch/historysearch",
+    "pages/searchresult/searchresult"
+  ],
+  "window":{              
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#e64340", 
+    "navigationBarTitleText":"独食生活",
+    "navigationBarTextStyle":"white",
+    "backgroundColor":"#FFFFFF"
+  },
+  "tabBar": {            
+    "color": "#2c2c2c",
+    "selectedColor": "#e64340",
+    "list": [
+      {
+        "pagePath": "pages/dailyupdate/dailyupdate",
+        "text": "每日更新",
+        "iconPath": "icons/dailyupdateU.png",
+        "selectedIconPath": "icons/dailyupdateS.png"
+      },
+      {
+        "pagePath": "pages/historysearch/historysearch",
+        "text": "历史搜索",
+        "iconPath": "icons/historysearchU.png",
+        "selectedIconPath": "icons/historysearchS.png"
+      }
+    ]
+  }
+}

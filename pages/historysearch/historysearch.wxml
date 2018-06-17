@@ -1,0 +1,47 @@
+<view class="page">
+  <loading hidden='{{loadcomplete}}'>
+    数据加载中...
+  </loading>
+  
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <form class='form-group' bindsubmit="formSubmit" bindreset="queryReset">
+        <view class='tagsinputview'>
+          <block wx:for="{{tagsList}}"  wx:key="id">
+            <view class='singletagview'>
+              <view class='tagdeleteiconview'>
+                <text id='{{item.id}}' style='color: {{item.clearcolor}};' bindtouchstart='cleartouchstart' bindtouchmove='cleartouchmove' bindtouchend='cleartouchend'>x</text>
+              </view>
+              <view class='tagcontentview'>
+                <text>{{item.tagcontent}}</text>
+              </view>
+            </view>
+          </block>
+
+          <view class="inputview-iconsearch">
+            <view class='inputview'>
+              <input type='text' value='{{inputcontent}}' placeholder='添加食材'  bindinput='inputKeyClick' bindblur='inputblur'></input>
+            </view>
+            <view class="icon-view">
+              <icon class="icon-search_in-box" color="{{searchiconcolor}}" type="search" size="{{searchiconsize}}" bindtap='searchiconclick' bindtouchstart='searchiconclickstart' bindtouchend='searchiconclickend'></icon>
+            </view>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+
+  <view class="weui-panel__bd">
+    <block wx:for="{{queryResultList}}" wx:key="id">
+      <navigator url="../searchresult/searchresult?foodName={{item.title}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.imageSrc}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title" style="font-size:16px;">{{item.title}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </block>
+  </view>
+</view>
